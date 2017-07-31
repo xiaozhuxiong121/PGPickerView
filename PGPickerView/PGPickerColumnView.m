@@ -265,6 +265,7 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     PGPickerColumnCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseIdentifier];
     if (self.upTableView == tableView) {
         if (indexPath.row <= self.upTableViewOffsetForRow) {
