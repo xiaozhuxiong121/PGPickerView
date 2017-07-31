@@ -33,4 +33,4 @@ pod 'PGPickerView'
 ```
 # License
 
-PGPickerView is released under an MIT license. See [License.md](License.md) for more information.
+PGPickerView is released under an MIT license. See [License](License) for more information.
