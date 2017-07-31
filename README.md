@@ -1,6 +1,6 @@
 # PGPickerView
 PGPickerView是将UIPickerView的弯曲弧度变成直列表，可以是单列表，多列表，还可以修改选中label的字体颜色等。  
-![AF2B6EFF-48A2-458D-84FD-BC622F6BDB97.png](http://upload-images.jianshu.io/upload_images/1340308-78829b2bd7f5a14a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![01F3FA58-E2F9-4BFF-9F49-F07BD32322DA.png](http://upload-images.jianshu.io/upload_images/1340308-ac6535112d5550ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/PGPickerView.svg)](https://cocoapods.org/pods/PGPickerView)
 ![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg)
