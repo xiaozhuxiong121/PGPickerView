@@ -24,7 +24,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor whiteColor];
         self.lineBackgroundColor = [UIColor grayColor];
         self.selectedRowTitleColor = [UIColor blackColor];
         self.otherRowTitleColor = [UIColor grayColor];
@@ -34,7 +33,6 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-        self.backgroundColor = [UIColor whiteColor];
         self.lineBackgroundColor = [UIColor grayColor];
         self.selectedRowTitleColor = [UIColor blackColor];
         self.otherRowTitleColor = [UIColor grayColor];

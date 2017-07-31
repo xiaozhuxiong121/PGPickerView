@@ -328,6 +328,8 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
 
 - (void)setSelectedRowTitleColor:(UIColor *)selectedRowTitleColor {
     _selectedRowTitleColor = selectedRowTitleColor;
+    [self.upTableView reloadData];
+    [self.downTableView reloadData];
     [self.centerTableView reloadData];
 }
 
@@ -335,6 +337,7 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
     _otherRowTitleColor = otherRowTitleColor;
     [self.upTableView reloadData];
     [self.downTableView reloadData];
+    [self.centerTableView reloadData];
 }
 
 @end
