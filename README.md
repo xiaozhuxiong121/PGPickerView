@@ -31,6 +31,6 @@ pod 'PGPickerView'
     return [NSString stringWithFormat:@"label%ld--%ld", component, row];
 }
 ```
-# License
+# LICENSE
 
-PGPickerView is released under an MIT license. See [License](License) for more information.
+PGPickerView is released under an MIT license. See [LICENSE](LICENSE) for more information.
