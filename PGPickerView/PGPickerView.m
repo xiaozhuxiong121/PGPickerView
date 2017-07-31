@@ -46,49 +46,58 @@
     [self bringSubviewToFront:self.upLine];
 }
 
-- (void)setupColumnView {
+- (PGPickerColumnView *)createColumnViewAtComponent:(NSUInteger)component {
     CGFloat width = kWidth / _numberOfComponents;
-    NSMutableArray *columnViewList = [NSMutableArray arrayWithCapacity:_numberOfComponents];
-    for (int i = 0; i < _numberOfComponents; i++) {
-        NSUInteger row = [self.dataSource pickerView:self numberOfRowsInComponent:i];
-        NSMutableArray *datas = [NSMutableArray arrayWithCapacity:row];
-        NSMutableArray *colors = [NSMutableArray arrayWithCapacity:row];
-        for (int j = 0; j < row; j++) {
-            BOOL tf = true;
-            NSAttributedString *attriStr = [[NSAttributedString alloc]initWithString:@"?"];
-            UIColor *color = [UIColor clearColor];
-            if (self.delegate) {
-                if ([self.delegate respondsToSelector:@selector(pickerView:attributedTitleForRow:forComponent:)]) {
-                    attriStr = [self.delegate pickerView:self attributedTitleForRow:j forComponent:i];
-                    if (!attriStr) {
-                        tf = false;
-                    }
-                }else {
+    NSUInteger row = [self.dataSource pickerView:self numberOfRowsInComponent:component];
+    NSMutableArray *datas = [NSMutableArray arrayWithCapacity:row];
+    NSMutableArray *colors = [NSMutableArray arrayWithCapacity:row];
+    for (int j = 0; j < row; j++) {
+        BOOL tf = true;
+        NSAttributedString *attriStr = [[NSAttributedString alloc]initWithString:@"?"];
+        UIColor *color = [UIColor clearColor];
+        if (self.delegate) {
+            if ([self.delegate respondsToSelector:@selector(pickerView:attributedTitleForRow:forComponent:)]) {
+                attriStr = [self.delegate pickerView:self attributedTitleForRow:j forComponent:component];
+                if (!attriStr) {
                     tf = false;
                 }
-                if (!tf && [self.delegate respondsToSelector:@selector(pickerView:titleForRow:forComponent:)]) {
-                    NSString *title = [self.delegate pickerView:self titleForRow:j forComponent:i];
-                    title = title ? title : @"?";
-                    attriStr = [[NSAttributedString alloc]initWithString:title];
-                }
-                
-                if ([self.delegate respondsToSelector:@selector(pickerView:viewBackgroundColorForRow:forComponent:)]) {
-                    UIColor *temp = [self.delegate pickerView:self viewBackgroundColorForRow:j forComponent:i];
-                    if (temp) {
-                        color = temp;
-                    }
+            }else {
+                tf = false;
+            }
+            if (!tf && [self.delegate respondsToSelector:@selector(pickerView:titleForRow:forComponent:)]) {
+                NSString *title = [self.delegate pickerView:self titleForRow:j forComponent:component];
+                title = title ? title : @"?";
+                attriStr = [[NSAttributedString alloc]initWithString:title];
+            }
+            
+            if ([self.delegate respondsToSelector:@selector(pickerView:viewBackgroundColorForRow:forComponent:)]) {
+                UIColor *temp = [self.delegate pickerView:self viewBackgroundColorForRow:j forComponent:component];
+                if (temp) {
+                    color = temp;
                 }
             }
-            [colors addObject:color];
-            [datas addObject:attriStr];
         }
-        PGPickerColumnView *view = [[PGPickerColumnView alloc]initWithFrame:CGRectMake(i * width, 0, width, kHeight) datas:datas];
+        [colors addObject:color];
+        [datas addObject:attriStr];
+    }
+    PGPickerColumnView *view = [self columnViewInComponent:component];
+    if (!view) {
+        view = [[PGPickerColumnView alloc]initWithFrame:CGRectMake(component * width, 0, width, kHeight)];
         view.delegate = self;
-        view.viewBackgroundColors = colors;
-        view.component = i;
-        view.selectedRowTitleColor = self.selectedRowTitleColor;
-        view.otherRowTitleColor = self.otherRowTitleColor;
         [self addSubview:view];
+    }
+    view.viewBackgroundColors = colors;
+    view.component = component;
+    view.selectedRowTitleColor = self.selectedRowTitleColor;
+    view.otherRowTitleColor = self.otherRowTitleColor;
+    view.datas = datas;
+    return view;
+}
+
+- (void)setupColumnView {
+    NSMutableArray *columnViewList = [NSMutableArray arrayWithCapacity:_numberOfComponents];
+    for (int i = 0; i < _numberOfComponents; i++) {
+        PGPickerColumnView *view = [self createColumnViewAtComponent:i];
         [columnViewList addObject:view];
     }
     self.columnViewList = columnViewList;
@@ -140,6 +149,14 @@
         }
     }];
     return view;
+}
+
+- (void)reloadComponent:(NSInteger)component {
+    [self createColumnViewAtComponent:component];
+}
+
+- (void)reloadAllComponents {
+    [self setupColumnView];
 }
 
 #pragma mark - PGPickerColumnViewDelegate

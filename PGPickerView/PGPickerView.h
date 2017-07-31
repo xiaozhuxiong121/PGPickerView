@@ -25,6 +25,9 @@
 - (void)selectRow:(NSInteger)row inComponent:(NSInteger)component animated:(BOOL)animated;// scrolls the specified row to center.
 
 - (NSInteger)selectedRowInComponent:(NSInteger)component;// returns selected row. -1 if nothing selected
+// Reloading whole view or single component
+- (void)reloadAllComponents;
+- (void)reloadComponent:(NSInteger)component;
 @end
 
 @protocol PGPickerViewDataSource<NSObject>

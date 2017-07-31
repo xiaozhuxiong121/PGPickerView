@@ -12,17 +12,18 @@
 
 @interface PGPickerColumnView : UIView
 @property (nonatomic, weak) id<PGPickerColumnViewDelegate> delegate;
+@property (nonatomic, strong) NSArray *datas;
 @property (nonatomic, assign) NSUInteger component;
 @property (nonatomic, strong) NSArray<UIColor *> *viewBackgroundColors;
 @property (nonatomic, assign) NSUInteger selectedRow;
 @property (nonatomic, strong)UIColor *selectedRowTitleColor;
 @property (nonatomic, strong)UIColor *otherRowTitleColor;
 
-- (instancetype)initWithFrame:(CGRect)frame datas:(NSArray *)datas;
 - (void)selectRow:(NSInteger)row animated:(BOOL)animated;
+- (void)reload;
 @end
 
 @protocol PGPickerColumnViewDelegate<NSObject>
 @optional
-- (void)pickerColumnView:(PGPickerColumnView *)pickerColumnView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
+- (void)pickerColumnView:(PGPickerColumnView *)pickerColumnView didSelectRow:(NSInteger)row;
 @end
