@@ -180,13 +180,17 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
     [self scrollViewDidEndDecelerating:scrollView];
 }
 
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    if (self.datas.count != 0) {
+        NSUInteger row = [self.centerTableView indexPathsForVisibleRows].lastObject.row;
+        self.selectedRow = row;
+    }
+}
+
 - (void)scrollViewDidEndDecelerating:(UITableView *)tableView {
     if (self.datas.count == 1) {
         self.selectedRow = 1;
         return;
-    }else if (self.datas.count != 0) {
-        NSUInteger row = [self.centerTableView indexPathsForVisibleRows].firstObject.row;
-        self.selectedRow = row;
     }
     NSUInteger tableViewRows = [self numberOfRowsInTableView:tableView];
     if (self.upTableView == tableView) {
