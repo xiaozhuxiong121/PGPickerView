@@ -25,8 +25,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.lineBackgroundColor = [UIColor grayColor];
-        self.selectedRowTitleColor = [UIColor blackColor];
-        self.otherRowTitleColor = [UIColor grayColor];
+        self.titleColorForSelectedRow = [UIColor blackColor];
+        self.titleColorForOtherRow = [UIColor grayColor];
     }
     return self;
 }
@@ -34,8 +34,8 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
         self.lineBackgroundColor = [UIColor grayColor];
-        self.selectedRowTitleColor = [UIColor blackColor];
-        self.otherRowTitleColor = [UIColor grayColor];
+        self.titleColorForSelectedRow = [UIColor blackColor];
+        self.titleColorForOtherRow = [UIColor grayColor];
     }
     return self;
 }
@@ -88,8 +88,8 @@
     }
     view.viewBackgroundColors = colors;
     view.component = component;
-    view.selectedRowTitleColor = self.selectedRowTitleColor;
-    view.otherRowTitleColor = self.otherRowTitleColor;
+    view.titleColorForSelectedRow = self.titleColorForSelectedRow;
+    view.titleColorForOtherRow = self.titleColorForOtherRow;
     view.datas = datas;
     return view;
 }
@@ -132,6 +132,14 @@
     return -1;
 }
 
+- (NSString *)titleForSelectedRow:(NSInteger)row inComponent:(NSInteger)component {
+    PGPickerColumnView *view = [self columnViewInComponent:component];
+    if (view) {
+        return view.titleForSelectedRow;
+    }
+    return nil;
+}
+
 - (void)selectRow:(NSInteger)row inComponent:(NSInteger)component animated:(BOOL)animated {
     PGPickerColumnView *view = [self columnViewInComponent:component];
     [view selectRow:row animated:animated];
@@ -166,6 +174,12 @@
     }
 }
 
+- (void)pickerColumnView:(PGPickerColumnView *)pickerColumnView title:(NSString *)title didSelectRow:(NSInteger)row {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerView:title:didSelectRow:inComponent:)]) {
+        [self.delegate pickerView:self title:title didSelectRow:row inComponent:pickerColumnView.component];
+    }
+}
+
 #pragma mark - Setter
 - (void)setDataSource:(id<PGPickerViewDataSource>)dataSource {
     _dataSource = dataSource;
@@ -191,17 +205,17 @@
     self.downLine.backgroundColor = lineBackgroundColor;
 }
 
-- (void)setSelectedRowTitleColor:(UIColor *)selectedRowTitleColor {
-    _selectedRowTitleColor = selectedRowTitleColor;
+- (void)setTitleColorForSelectedRow:(UIColor *)titleColorForSelectedRow {
+    _titleColorForSelectedRow = titleColorForSelectedRow;
     [self.columnViewList enumerateObjectsUsingBlock:^(PGPickerColumnView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.selectedRowTitleColor = selectedRowTitleColor;
+        obj.titleColorForSelectedRow = titleColorForSelectedRow;
     }];
 }
 
-- (void)setOtherRowTitleColor:(UIColor *)otherRowTitleColor {
-    _otherRowTitleColor = otherRowTitleColor;
+- (void)setTitleColorForOtherRow:(UIColor *)titleColorForOtherRow {
+    _titleColorForOtherRow = titleColorForOtherRow;
     [self.columnViewList enumerateObjectsUsingBlock:^(PGPickerColumnView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.otherRowTitleColor = otherRowTitleColor;
+        obj.titleColorForOtherRow = titleColorForOtherRow;
     }];
 }
 

@@ -134,9 +134,9 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
     _selectedRow = row;
     _isSelectRow = !_layoutedSubViews;
     _selectRowAnimation = animated;
-    if (_layoutedSubViews) {
+    if (_layoutedSubViews && self.datas.count > row) {
         _beginning = true;
-        [self.centerTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:animated] animated:true scrollPosition:UITableViewScrollPositionMiddle];
+        [self.centerTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] animated:animated scrollPosition:UITableViewScrollPositionMiddle];
     }
 }
 
@@ -276,7 +276,7 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
             NSUInteger index = indexPath.row - (self.upTableViewOffsetForRow + 1);
             if (index < self.datas.count) {
                 cell.label.attributedText = self.datas[index];
-                cell.label.textColor = self.otherRowTitleColor;
+                cell.label.textColor = self.titleColorForOtherRow;
                 UIColor *color = self.viewBackgroundColors[index];
                 if (color) {
                     cell.label.backgroundColor = color;
@@ -292,7 +292,7 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
         NSUInteger index = indexPath.row;
         if (index < self.datas.count) {
             cell.label.attributedText = self.datas[index];
-            cell.label.textColor = self.otherRowTitleColor;
+            cell.label.textColor = self.titleColorForOtherRow;
             UIColor *color = self.viewBackgroundColors[index];
             if (color) {
                 cell.label.backgroundColor = color;
@@ -306,7 +306,7 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
     NSUInteger index = indexPath.row;
     if (index < self.datas.count) {
         cell.label.attributedText = self.datas[index];
-        cell.label.textColor = self.selectedRowTitleColor;
+        cell.label.textColor = self.titleColorForSelectedRow;
         UIColor *color = self.viewBackgroundColors[index];
         if (color) {
             cell.label.backgroundColor = color;
@@ -329,20 +329,27 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
 
 - (void)setSelectedRow:(NSUInteger)selectedRow {
     _selectedRow = selectedRow;
+    if (self.datas.count > selectedRow) {
+        NSAttributedString *attriString = self.datas[selectedRow];
+        self.titleForSelectedRow = attriString.string;
+    }
     if (self.delegate && [self.delegate respondsToSelector:@selector(pickerColumnView:didSelectRow:)]) {
         [self.delegate pickerColumnView:self didSelectRow:selectedRow];
     }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerColumnView:title:didSelectRow:)]) {
+        [self.delegate pickerColumnView:self title:self.titleForSelectedRow didSelectRow:selectedRow];
+    }
 }
 
-- (void)setSelectedRowTitleColor:(UIColor *)selectedRowTitleColor {
-    _selectedRowTitleColor = selectedRowTitleColor;
+- (void)setTitleColorForSelectedRow:(UIColor *)titleColorForSelectedRow {
+    _titleColorForSelectedRow = titleColorForSelectedRow;
     [self.upTableView reloadData];
     [self.downTableView reloadData];
     [self.centerTableView reloadData];
 }
 
-- (void)setOtherRowTitleColor:(UIColor *)otherRowTitleColor {
-    _otherRowTitleColor = otherRowTitleColor;
+- (void)setTitleColorForOtherRow:(UIColor *)titleColorForOtherRow {
+    _titleColorForOtherRow = titleColorForOtherRow;
     [self.upTableView reloadData];
     [self.downTableView reloadData];
     [self.centerTableView reloadData];

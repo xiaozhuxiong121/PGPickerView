@@ -15,8 +15,8 @@
 @property(nonatomic,weak) id<PGPickerViewDataSource> dataSource;    // default is nil. weak reference
 @property(nonatomic,weak) id<PGPickerViewDelegate>   delegate;      // default is nil. weak reference
 @property(nonatomic, strong) UIColor *lineBackgroundColor;          // default is [UIColor grayColor]
-@property (nonatomic, strong)UIColor *selectedRowTitleColor;        // [UIColor blackColor]
-@property (nonatomic, strong)UIColor *otherRowTitleColor;           // default is [UIColor grayColor]
+@property (nonatomic, strong)UIColor *titleColorForSelectedRow;     // [UIColor blackColor]
+@property (nonatomic, strong)UIColor *titleColorForOtherRow;        // default is [UIColor grayColor]
 // info that was fetched and cached from the data source and delegate
 @property(nonatomic,readonly) NSInteger numberOfComponents;
 - (NSInteger)numberOfRowsInComponent:(NSInteger)component;
@@ -25,6 +25,7 @@
 - (void)selectRow:(NSInteger)row inComponent:(NSInteger)component animated:(BOOL)animated;// scrolls the specified row to center.
 
 - (NSInteger)selectedRowInComponent:(NSInteger)component;// returns selected row. -1 if nothing selected
+- (NSString *)titleForSelectedRow:(NSInteger)row inComponent:(NSInteger)component;
 // Reloading whole view or single component
 - (void)reloadAllComponents;
 - (void)reloadComponent:(NSInteger)component;
@@ -51,5 +52,5 @@
 - (UIColor *)pickerView:(PGPickerView *)pickerView viewBackgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component;
 
 - (void)pickerView:(PGPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
-
+- (void)pickerView:(PGPickerView *)pickerView title:(NSString *)title didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
 @end

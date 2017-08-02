@@ -16,14 +16,15 @@
 @property (nonatomic, assign) NSUInteger component;
 @property (nonatomic, strong) NSArray<UIColor *> *viewBackgroundColors;
 @property (nonatomic, assign) NSUInteger selectedRow;
-@property (nonatomic, strong)UIColor *selectedRowTitleColor;
-@property (nonatomic, strong)UIColor *otherRowTitleColor;
+@property (nonatomic, copy) NSString *titleForSelectedRow;
+@property (nonatomic, strong) UIColor *titleColorForSelectedRow;
+@property (nonatomic, strong) UIColor *titleColorForOtherRow;
 
 - (void)selectRow:(NSInteger)row animated:(BOOL)animated;
-- (void)reload;
 @end
 
 @protocol PGPickerColumnViewDelegate<NSObject>
 @optional
 - (void)pickerColumnView:(PGPickerColumnView *)pickerColumnView didSelectRow:(NSInteger)row;
+- (void)pickerColumnView:(PGPickerColumnView *)pickerColumnView title:(NSString *)title didSelectRow:(NSInteger)row;
 @end
