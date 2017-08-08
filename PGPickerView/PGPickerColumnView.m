@@ -57,6 +57,9 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
     }
     _layoutedSubViews = true;
     if (_isSelectRow) {
+        if (!_selectRowAnimation) {
+            self.selectedRow = _selectedRow;
+        }
         _beginning = true;
         [self.centerTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:_selectedRow inSection:0] animated:_selectRowAnimation scrollPosition:UITableViewScrollPositionMiddle];
         _isSelectRow = false;
@@ -134,7 +137,10 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
     _selectedRow = row;
     _isSelectRow = !_layoutedSubViews;
     _selectRowAnimation = animated;
-    if (_layoutedSubViews && self.datas.count > row) {
+    if (_layoutedSubViews) {
+        if (!animated) {
+            self.selectedRow = row;
+        }
         _beginning = true;
         [self.centerTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] animated:animated scrollPosition:UITableViewScrollPositionMiddle];
     }
