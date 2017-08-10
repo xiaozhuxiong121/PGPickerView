@@ -9,13 +9,13 @@ PGPickerView是将UIPickerView的弯曲弧度变成直列表，可以是单列�
 
 ![PGPickerView.gif](PGPickerView.gif)
 
-# Installation with CocoaPods
+# CocoaPods安装
 
 ```
 pod 'PGPickerView'
 ```
 
-# Usage
+# 使用
 
 ```
 PGPickerView *pickerView = [[PGPickerView alloc]initWithFrame:self.view.bounds];
@@ -36,6 +36,17 @@ pickerView.dataSource = self;
     return [NSString stringWithFormat:@"label%ld--%ld", component, row];
 }
 ```
-# LICENSE
+# 设置样式
+```
+//设置线条的颜色
+pickerView.lineBackgroundColor = [UIColor redColor]; 
+//设置选中行的字体颜色
+pickerView.titleColorForSelectedRow = [UIColor redColor]; 
+//设置未选中行的字体颜色
+pickerView.titleColorForOtherRow = [UIColor blackColor]; 
 
-PGPickerView is released under an MIT license. See [LICENSE](LICENSE) for more information.
+```
+
+# 许可证
+
+PGPickerView 使用 MIT 许可证，详情见 [LICENSE](LICENSE) 文件。
