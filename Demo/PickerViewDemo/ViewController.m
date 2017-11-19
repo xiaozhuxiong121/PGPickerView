@@ -12,7 +12,9 @@
 @interface ViewController ()<PGPickerViewDelegate, PGPickerViewDataSource>
 @property (nonatomic, weak) IBOutlet PGPickerView *pickerView;
 @property (nonatomic, strong) NSString *string;
-@property (nonatomic, strong) NSMutableArray *datas;
+@property (nonatomic, strong) NSArray *datas1;
+@property (nonatomic, strong) NSArray *datas2;
+@property (nonatomic, strong) NSArray *datas3;
 @end
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -21,65 +23,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.datas = [NSMutableArray array];
-    for (int i = 0; i < 10; i++) {
-        [self.datas addObject:[NSString stringWithFormat:@"Label%d", i]];
-    }
+    self.datas1 = @[@"北京", @"上海", @"天津", @"重庆", @"四川", @"贵州", @"云南", @"西藏", @"河南", @"湖北"];
+    self.datas2 = @[@"东城区",@"西城区",@"崇文区",@"宣武区",@"朝阳区",@"丰台区",@"石景山区",@"海淀区",@"门头沟区",@"房山区"];
+    self.datas3 = @[@"黄浦区",@"卢湾区",@"徐汇区",@"长宁区",@"静安区",@"普陀区",@"闸北区",@"虹口区",@"杨浦区",@"宝山区"];
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
-    [self.view addSubview:self.pickerView];
-    [self.pickerView selectRow:4 inComponent:0 animated:YES];
-    [self.pickerView selectRow:4 inComponent:1 animated:YES];
-}
-
-- (IBAction)buttonHandler:(id)sender {
-    [self.datas removeAllObjects];
+    self.pickerView.type = PGPickerViewType2;
+    
+    [self.pickerView selectRow:5 inComponent:0 animated:true];
+    [self.pickerView selectRow:7 inComponent:1 animated:true];
+    self.pickerView.rowHeight = 45;
+    
+    self.pickerView.isHiddenMiddleText = false;
+    
     //设置线条的颜色
     self.pickerView.lineBackgroundColor = [UIColor redColor];
     //设置选中行的字体颜色
-    self.pickerView.titleColorForSelectedRow = [UIColor redColor];
+    self.pickerView.textColorOfSelectedRow = [UIColor blueColor];
     //设置未选中行的字体颜色
-    self.pickerView.titleColorForOtherRow = [UIColor blackColor];
-    for (int i = 0; i < 10; i++) {
-        [self.datas addObject:[NSString stringWithFormat:@"Test%d", i]];
-    }
-    [self.pickerView reloadComponent:1];
+    self.pickerView.textColorOfOtherRow = [UIColor blackColor];
 }
-
 
 #pragma UIPickerViewDataSource
 - (NSInteger)numberOfComponentsInPickerView:(PGPickerView *)pickerView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)pickerView:(PGPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return self.datas.count;
+    return self.datas1.count;
 }
 #pragma UIPickerViewDelegate
-//- (UIColor *)pickerView:(PGPickerView *)pickerView viewBackgroundColorForRow:(NSInteger)row forComponent:(NSInteger)component {
-//    if (row == 0) {
-//        return [UIColor redColor];
-//    }else if (row == 1) {
-//        return [UIColor orangeColor];
-//    }
-//    return nil;
-//}
-
 - (nullable NSString *)pickerView:(PGPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return self.datas[row];
+    if (component == 0) {
+        return self.datas1[row];
+    }
+    if (component == 1) {
+        return self.datas2[row];
+    }
+    return self.datas3[row];
 }
-
-//- (NSAttributedString *)pickerView:(PGPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
-//    NSAttributedString *restr = [[NSAttributedString alloc] initWithString:@"121212" attributes:@{NSForegroundColorAttributeName:[UIColor greenColor], NSFontAttributeName:[UIFont systemFontOfSize:20]}];
-//    return restr;
-//}
 
 - (void)pickerView:(PGPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     NSLog(@"row = %ld component = %ld", row, component);
 }
-
-//- (CGFloat)rowHeightInPickerView:(PGPickerView *)pickerView {
-//    return 50;
-//}
 
 @end

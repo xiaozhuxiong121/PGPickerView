@@ -14,7 +14,6 @@
 		8634EB011F2829A200EC09CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8634EB001F2829A200EC09CF /* main.m */; };
 		8634EB0B1F2829A200EC09CF /* PickerViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8634EB0A1F2829A200EC09CF /* PickerViewDemoTests.m */; };
 		8634EB161F2829A200EC09CF /* PickerViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8634EB151F2829A200EC09CF /* PickerViewDemoUITests.m */; };
-		86CD15371F2F4ED2008569AB /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CD15361F2F4ED2008569AB /* TestViewController.m */; };
 		86F094221F2F0B700067AF16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86F094211F2F0B700067AF16 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -53,8 +52,6 @@
 		8634EB111F2829A200EC09CF /* PickerViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickerViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8634EB151F2829A200EC09CF /* PickerViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickerViewDemoUITests.m; sourceTree = "<group>"; };
 		8634EB171F2829A200EC09CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		86CD15351F2F4ED2008569AB /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		86CD15361F2F4ED2008569AB /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		86F094211F2F0B700067AF16 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,8 +114,6 @@
 				8634EAFF1F2829A200EC09CF /* Info.plist */,
 				8634EB001F2829A200EC09CF /* main.m */,
 				86F094211F2F0B700067AF16 /* Main.storyboard */,
-				86CD15351F2F4ED2008569AB /* TestViewController.h */,
-				86CD15361F2F4ED2008569AB /* TestViewController.m */,
 			);
 			path = PickerViewDemo;
 			sourceTree = "<group>";
@@ -340,7 +335,6 @@
 			files = (
 				8634EAF61F2829A200EC09CF /* ViewController.m in Sources */,
 				8634EB011F2829A200EC09CF /* main.m in Sources */,
-				86CD15371F2F4ED2008569AB /* TestViewController.m in Sources */,
 				8634EAF31F2829A200EC09CF /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
