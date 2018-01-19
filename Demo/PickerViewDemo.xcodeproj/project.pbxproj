@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30979107967D0F3978A9E918 /* libPods-PickerViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A74CF718107082E97F7837 /* libPods-PickerViewDemo.a */; };
 		8634EAF31F2829A200EC09CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8634EAF21F2829A200EC09CF /* AppDelegate.m */; };
 		8634EAF61F2829A200EC09CF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8634EAF51F2829A200EC09CF /* ViewController.m */; };
 		8634EAFB1F2829A200EC09CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8634EAFA1F2829A200EC09CF /* Assets.xcassets */; };
 		8634EB011F2829A200EC09CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8634EB001F2829A200EC09CF /* main.m */; };
-		8634EB0B1F2829A200EC09CF /* PickerViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8634EB0A1F2829A200EC09CF /* PickerViewDemoTests.m */; };
-		8634EB161F2829A200EC09CF /* PickerViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8634EB151F2829A200EC09CF /* PickerViewDemoUITests.m */; };
+		86D76F9620122C4600DC2093 /* PGPickerColumnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D76F8E20122C4600DC2093 /* PGPickerColumnCell.m */; };
+		86D76F9720122C4600DC2093 /* PGPickerColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D76F8F20122C4600DC2093 /* PGPickerColumnView.m */; };
+		86D76F9820122C4600DC2093 /* PGPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D76F9420122C4600DC2093 /* PGPickerView.m */; };
+		86D76F9920122C4600DC2093 /* PGPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D76F9520122C4600DC2093 /* PGPickerTableView.m */; };
 		86F094221F2F0B700067AF16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86F094211F2F0B700067AF16 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -35,9 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0CF4406685933AC4FAC38D89 /* Pods-PickerViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewDemo/Pods-PickerViewDemo.release.xcconfig"; sourceTree = "<group>"; };
-		2C481F7CA69A86F869C58520 /* Pods-PickerViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerViewDemo/Pods-PickerViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		71A74CF718107082E97F7837 /* libPods-PickerViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PickerViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8634EAEE1F2829A200EC09CF /* PickerViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickerViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8634EAF11F2829A200EC09CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8634EAF21F2829A200EC09CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -47,11 +45,15 @@
 		8634EAFF1F2829A200EC09CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8634EB001F2829A200EC09CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8634EB061F2829A200EC09CF /* PickerViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickerViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8634EB0A1F2829A200EC09CF /* PickerViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickerViewDemoTests.m; sourceTree = "<group>"; };
-		8634EB0C1F2829A200EC09CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8634EB111F2829A200EC09CF /* PickerViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickerViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8634EB151F2829A200EC09CF /* PickerViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickerViewDemoUITests.m; sourceTree = "<group>"; };
-		8634EB171F2829A200EC09CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86D76F8E20122C4600DC2093 /* PGPickerColumnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPickerColumnCell.m; sourceTree = "<group>"; };
+		86D76F8F20122C4600DC2093 /* PGPickerColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPickerColumnView.m; sourceTree = "<group>"; };
+		86D76F9020122C4600DC2093 /* PGPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPickerView.h; sourceTree = "<group>"; };
+		86D76F9120122C4600DC2093 /* PGPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPickerTableView.h; sourceTree = "<group>"; };
+		86D76F9220122C4600DC2093 /* PGPickerColumnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPickerColumnCell.h; sourceTree = "<group>"; };
+		86D76F9320122C4600DC2093 /* PGPickerColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPickerColumnView.h; sourceTree = "<group>"; };
+		86D76F9420122C4600DC2093 /* PGPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPickerView.m; sourceTree = "<group>"; };
+		86D76F9520122C4600DC2093 /* PGPickerTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPickerTableView.m; sourceTree = "<group>"; };
 		86F094211F2F0B700067AF16 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30979107967D0F3978A9E918 /* libPods-PickerViewDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,11 +85,9 @@
 		8634EAE51F2829A100EC09CF = {
 			isa = PBXGroup;
 			children = (
+				86D76F8D20122C4600DC2093 /* PGPickerView */,
 				8634EAF01F2829A200EC09CF /* PickerViewDemo */,
-				8634EB091F2829A200EC09CF /* PickerViewDemoTests */,
-				8634EB141F2829A200EC09CF /* PickerViewDemoUITests */,
 				8634EAEF1F2829A200EC09CF /* Products */,
-				BF0EAC5B97C709291DDD6E9E /* Pods */,
 				F0F5104668D5F485A178D7A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -118,37 +117,25 @@
 			path = PickerViewDemo;
 			sourceTree = "<group>";
 		};
-		8634EB091F2829A200EC09CF /* PickerViewDemoTests */ = {
+		86D76F8D20122C4600DC2093 /* PGPickerView */ = {
 			isa = PBXGroup;
 			children = (
-				8634EB0A1F2829A200EC09CF /* PickerViewDemoTests.m */,
-				8634EB0C1F2829A200EC09CF /* Info.plist */,
+				86D76F8E20122C4600DC2093 /* PGPickerColumnCell.m */,
+				86D76F8F20122C4600DC2093 /* PGPickerColumnView.m */,
+				86D76F9020122C4600DC2093 /* PGPickerView.h */,
+				86D76F9120122C4600DC2093 /* PGPickerTableView.h */,
+				86D76F9220122C4600DC2093 /* PGPickerColumnCell.h */,
+				86D76F9320122C4600DC2093 /* PGPickerColumnView.h */,
+				86D76F9420122C4600DC2093 /* PGPickerView.m */,
+				86D76F9520122C4600DC2093 /* PGPickerTableView.m */,
 			);
-			path = PickerViewDemoTests;
-			sourceTree = "<group>";
-		};
-		8634EB141F2829A200EC09CF /* PickerViewDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8634EB151F2829A200EC09CF /* PickerViewDemoUITests.m */,
-				8634EB171F2829A200EC09CF /* Info.plist */,
-			);
-			path = PickerViewDemoUITests;
-			sourceTree = "<group>";
-		};
-		BF0EAC5B97C709291DDD6E9E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2C481F7CA69A86F869C58520 /* Pods-PickerViewDemo.debug.xcconfig */,
-				0CF4406685933AC4FAC38D89 /* Pods-PickerViewDemo.release.xcconfig */,
-			);
-			name = Pods;
+			name = PGPickerView;
+			path = ../PGPickerView;
 			sourceTree = "<group>";
 		};
 		F0F5104668D5F485A178D7A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				71A74CF718107082E97F7837 /* libPods-PickerViewDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -160,12 +147,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8634EB1A1F2829A200EC09CF /* Build configuration list for PBXNativeTarget "PickerViewDemo" */;
 			buildPhases = (
-				B8A42D4D926ABA2A75887438 /* [CP] Check Pods Manifest.lock */,
 				8634EAEA1F2829A200EC09CF /* Sources */,
 				8634EAEB1F2829A200EC09CF /* Frameworks */,
 				8634EAEC1F2829A200EC09CF /* Resources */,
-				955F4FEA4D7565A715223DC6 /* [CP] Embed Pods Frameworks */,
-				91E243324D7E0D48F7E18848 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,54 +264,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		91E243324D7E0D48F7E18848 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickerViewDemo/Pods-PickerViewDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		955F4FEA4D7565A715223DC6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickerViewDemo/Pods-PickerViewDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B8A42D4D926ABA2A75887438 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		8634EAEA1F2829A200EC09CF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -335,6 +271,10 @@
 			files = (
 				8634EAF61F2829A200EC09CF /* ViewController.m in Sources */,
 				8634EB011F2829A200EC09CF /* main.m in Sources */,
+				86D76F9620122C4600DC2093 /* PGPickerColumnCell.m in Sources */,
+				86D76F9820122C4600DC2093 /* PGPickerView.m in Sources */,
+				86D76F9720122C4600DC2093 /* PGPickerColumnView.m in Sources */,
+				86D76F9920122C4600DC2093 /* PGPickerTableView.m in Sources */,
 				8634EAF31F2829A200EC09CF /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,7 +283,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8634EB0B1F2829A200EC09CF /* PickerViewDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +290,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8634EB161F2829A200EC09CF /* PickerViewDemoUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +415,6 @@
 		};
 		8634EB1B1F2829A200EC09CF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C481F7CA69A86F869C58520 /* Pods-PickerViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 65MUSRJ8L7;
@@ -492,7 +429,6 @@
 		};
 		8634EB1C1F2829A200EC09CF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CF4406685933AC4FAC38D89 /* Pods-PickerViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 65MUSRJ8L7;

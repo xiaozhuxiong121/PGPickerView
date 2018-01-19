@@ -48,6 +48,7 @@
         return;
     }
     _isSubViewLayout = true;
+    [self setupColumnView];
     [self setupView];
     [self.upLines enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [self bringSubviewToFront:obj];
@@ -440,7 +441,6 @@
     _dataSource = dataSource;
     if (dataSource && [dataSource respondsToSelector:@selector(numberOfComponentsInPickerView:)]) {
         _numberOfComponents = [dataSource numberOfComponentsInPickerView:self];
-        [self setupColumnView];
     }
 }
 
