@@ -256,7 +256,7 @@
         }
         label.frame = CGRectMake(lineWidth / 2 + lineWidth * i + space, kHeight / 2 - 15, 30, 30);
         NSString *text = @"";
-        if ([self.delegate respondsToSelector:@selector(pickerView:middleTextSpaceForcomponent:)]) {
+        if ([self.delegate respondsToSelector:@selector(pickerView:middleTextForcomponent:)]) {
             text = [self.delegate pickerView:self middleTextForcomponent:i];
         }
         label.text = text;
