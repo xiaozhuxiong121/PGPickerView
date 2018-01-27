@@ -65,9 +65,9 @@
 }
 
 - (void)setup {
-    self.lineBackgroundColor = [UIColor grayColor];
+    self.lineBackgroundColor = [UIColor lightGrayColor];
     self.textColorOfSelectedRow = [UIColor blackColor];
-    self.textColorOfOtherRow = [UIColor grayColor];
+    self.textColorOfOtherRow = [UIColor lightGrayColor];
     self.isHiddenMiddleText = true;
     self.lineHeight = 0.5;
     self.verticalLineWidth = 0.5;
