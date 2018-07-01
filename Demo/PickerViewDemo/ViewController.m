@@ -32,9 +32,8 @@
     
     [self.pickerView selectRow:5 inComponent:0 animated:true];
     [self.pickerView selectRow:7 inComponent:1 animated:true];
-    self.pickerView.rowHeight = 45;
+    self.pickerView.rowHeight = 50;
     self.pickerView.isHiddenMiddleText = false;
-    
     //设置线条的颜色
     self.pickerView.lineBackgroundColor = [UIColor redColor];
     //设置选中行的字体颜色
