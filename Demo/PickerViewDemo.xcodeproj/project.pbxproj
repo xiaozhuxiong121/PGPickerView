@@ -120,13 +120,13 @@
 		86D76F8D20122C4600DC2093 /* PGPickerView */ = {
 			isa = PBXGroup;
 			children = (
-				86D76F9220122C4600DC2093 /* PGPickerColumnCell.h */,
 				86D76F8E20122C4600DC2093 /* PGPickerColumnCell.m */,
-				86D76F9320122C4600DC2093 /* PGPickerColumnView.h */,
 				86D76F8F20122C4600DC2093 /* PGPickerColumnView.m */,
 				86D76F9020122C4600DC2093 /* PGPickerView.h */,
-				86D76F9420122C4600DC2093 /* PGPickerView.m */,
 				86D76F9120122C4600DC2093 /* PGPickerTableView.h */,
+				86D76F9220122C4600DC2093 /* PGPickerColumnCell.h */,
+				86D76F9320122C4600DC2093 /* PGPickerColumnView.h */,
+				86D76F9420122C4600DC2093 /* PGPickerView.m */,
 				86D76F9520122C4600DC2093 /* PGPickerTableView.m */,
 			);
 			name = PGPickerView;
