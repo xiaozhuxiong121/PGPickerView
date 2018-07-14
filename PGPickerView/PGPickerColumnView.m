@@ -30,21 +30,21 @@
 
 @property (nonatomic, assign) CGFloat showCount;
 
-@property (nonatomic, assign) CGFloat isSubViewLayouted;
-@property (nonatomic, assign) CGFloat isAnimationOfSelectedRow;
+@property (nonatomic, assign) BOOL isSubViewLayouted;
+@property (nonatomic, assign) BOOL isAnimationOfSelectedRow;
 @property (nonatomic, assign) CGFloat numberOfSelectedRow;
-@property (nonatomic, assign) CGFloat isSelected;
+@property (nonatomic, assign) BOOL isSelected;
 
 @property (nonatomic, assign) CGFloat circumference;
 @property (nonatomic, assign) CGFloat radius;
 @end
 
+@implementation PGPickerColumnView
+
 #define kWidth self.frame.size.width
 #define kHeight self.frame.size.height
 
 static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
-
-@implementation PGPickerColumnView
 
 - (instancetype)initWithFrame:(CGRect)frame rowHeight:(CGFloat)rowHeight upLineHeight:(CGFloat)upLineHeight downLineHeight:(CGFloat)downLineHeight {
     if (self = [super initWithFrame:frame]) {
