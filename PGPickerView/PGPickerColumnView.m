@@ -84,6 +84,8 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
             [blockSelf selectRow:self.numberOfSelectedRow animated:self.isAnimationOfSelectedRow];
             blockSelf = nil;
         });
+    }else {
+        [self selectRow:self.numberOfSelectedRow animated:self.isAnimationOfSelectedRow];
     }
 }
 
