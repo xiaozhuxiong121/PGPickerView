@@ -77,16 +77,16 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
     if (!self.isSelected) {
         return;
     }
+    CGFloat time = 0.15;
     if (_isAnimationOfSelectedRow) {
-        __block id blockSelf = self;
-        dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.26 * NSEC_PER_SEC));
-        dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-            [blockSelf selectRow:self.numberOfSelectedRow animated:self.isAnimationOfSelectedRow];
-            blockSelf = nil;
-        });
-    }else {
-        [self selectRow:self.numberOfSelectedRow animated:self.isAnimationOfSelectedRow];
+        time = 0.26;
     }
+    __block id blockSelf = self;
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC));
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        [blockSelf selectRow:self.numberOfSelectedRow animated:self.isAnimationOfSelectedRow];
+        blockSelf = nil;
+    });
 }
 
 - (void)setupView {
