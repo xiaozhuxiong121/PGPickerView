@@ -28,7 +28,7 @@
     self.datas3 = @[@"黄浦区",@"卢湾区",@"徐汇区",@"长宁区",@"静安区",@"普陀区",@"闸北区",@"虹口区",@"杨浦区",@"宝山区"];
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
-    self.pickerView.type = PGPickerViewType2;
+    self.pickerView.type = PGPickerViewLineTypelineSegment;
     
     [self.pickerView selectRow:5 inComponent:0 animated:true];
     [self.pickerView selectRow:7 inComponent:1 animated:true];
