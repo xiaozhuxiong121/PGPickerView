@@ -165,7 +165,7 @@ static NSString *const cellReuseIdentifier = @"PGPickerColumnCell";
             self.selectedRow = row;
         }else {
             __block PGPickerColumnView *blockSelf = self;
-            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC));
+            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 blockSelf.centerTableView.contentOffset = CGPointMake(0, row * blockSelf.rowHeight);
                 blockSelf.isSelected = false;
